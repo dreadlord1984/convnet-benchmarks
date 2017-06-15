@@ -2,14 +2,18 @@ Install Theano:
 ```
 git clone git://github.com/Theano/Theano.git
 cd Theano
-sudo python setup.py develop
+python setup.py develop
+# To install into your home directory instead:
+# python setup.py develop --prefix=~/.local
 ```
 
 Install pylearn2:
 ```
 git clone git://github.com/lisa-lab/pylearn2.git
 cd pylearn2
-sudo python setup.py develop
+python setup.py develop
+# To install into your home directory instead:
+# python setup.py develop --prefix=~/.local
 ```
 
 Install pycuda:
@@ -18,17 +22,21 @@ wget -c https://pypi.python.org/packages/source/p/pycuda/pycuda-2013.1.1.tar.gz#
 tar -xvf pycuda-2013.1.1.tar.gz
 cd pycuda-2013.1.1
 ./configure.py
-sudo python setup.py install
+python setup.py install
+# To install into your home directory instead:
+# python setup.py install --user
 ```
 
 Install scikits.cuda:
 ```
 git clone https://github.com/lebedov/scikits.cuda.git
 cd scikits.cuda
-sudo python setup.py install
+python setup.py install
+# To install into your home directory instead:
+# python setup.py install --user
 ```
 
 Launch the script:
 ```
-THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python pylearn2_benchmark.py 
+SKIP=legacy python pylearn2_benchmark.py
 ```

@@ -1,71 +1,132 @@
-Using gpu device 0: GeForce GTX TITAN Black
+Using gpu device 0: Graphics Device
+Note: cuDNN not available
 
 CONFIG: input = 3 x 128 x 128 * ker = 3 x 96 x 11 x 11 ( bs = 128 , stride = 1 )
-theano.tensor.nnet.conv.conv2d fprop: 309.723348019 GFLOP/s ( tm = 0.401058654785 )
-theano.tensor.nnet.conv.conv2d bprop weights: 0.0 GFLOP/s ( tm = 0.658359802246 )
-theano.tensor.nnet.conv.conv2d bprop inputs: 0.0 GFLOP/s ( tm = 52.4041601563 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft fprop: 940.770459413 GFLOP/s ( tm = 0.132037765503 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: 0.0 GFLOP/s ( tm = 0.190431915283 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: 0.0 GFLOP/s ( tm = 0.636531860352 )
-(experimental) theano.sandbox.cuda.blas.CorrMM fprop: 293.470036554 GFLOP/s ( tm = 0.423270568848 )
-(experimental) theano.sandbox.cuda.blas.CorrMM bprop weights: 0.0 GFLOP/s ( tm = 0.668097961426 )
-(experimental) theano.sandbox.cuda.blas.CorrMM bprop inputs: 0.0 GFLOP/s ( tm = 55.6831601562 )
-pylearn2.sandbox.cuda_convnet fprop: 1293.57089242 GFLOP/s ( tm = 0.0960266113281 )
-pylearn2.sandbox.cuda_convnet bprop weights: 0.0 GFLOP/s ( tm = 0.454847259521 )
-pylearn2.sandbox.cuda_convnet bprop inputs: 0.0 GFLOP/s ( tm = 0.152817169189 )
+(experimental) meta-optimizer                      ==> fprop         ==>      91
+(experimental) meta-optimizer                      ==> bprop inputs  ==>      92
+(experimental) meta-optimizer                      ==> bprop weights ==>      87
+
+theano.sandbox.cuda.fftconv.conv2d_fft fprop: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>      91
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      92
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>      87
+
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>      90
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      89
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>      85
+
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>      38
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>      53
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>     339
+
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>      38
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>      53
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>      83
+
 
 CONFIG: input = 64 x 64 x 64 * ker = 64 x 128 x 9 x 9 ( bs = 128 , stride = 1 )
-theano.tensor.nnet.conv.conv2d fprop: 231.297059515 GFLOP/s ( tm = 2.30314282227 )
-theano.tensor.nnet.conv.conv2d bprop weights: 0.0 GFLOP/s ( tm = 6.64881103516 )
-theano.tensor.nnet.conv.conv2d bprop inputs: 0.0 GFLOP/s ( tm = 2.62476953125 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft fprop: 6593.02699028 GFLOP/s ( tm = 0.0807990264893 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: 0.0 GFLOP/s ( tm = 0.119864097595 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: 0.0 GFLOP/s ( tm = 0.264298522949 )
-(experimental) theano.sandbox.cuda.blas.CorrMM fprop: 183.626609036 GFLOP/s ( tm = 2.90105102539 )
-(experimental) theano.sandbox.cuda.blas.CorrMM bprop weights: 0.0 GFLOP/s ( tm = 7.20155419922 )
-(experimental) theano.sandbox.cuda.blas.CorrMM bprop inputs: 0.0 GFLOP/s ( tm = 2.82471289062 )
-pylearn2.sandbox.cuda_convnet fprop: 1231.8813789 GFLOP/s ( tm = 0.432436248779 )
-pylearn2.sandbox.cuda_convnet bprop weights: 0.0 GFLOP/s ( tm = 0.784701660156 )
-pylearn2.sandbox.cuda_convnet bprop inputs: 0.0 GFLOP/s ( tm = 0.68285357666 )
+(experimental) meta-optimizer                      ==> fprop         ==>     149
+(experimental) meta-optimizer                      ==> bprop inputs  ==>     173
+(experimental) meta-optimizer                      ==> bprop weights ==>     239
+
+theano.sandbox.cuda.fftconv.conv2d_fft fprop: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>     149
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>     173
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>     244
+
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>     143
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>     163
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>     242
+
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>     184
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>     226
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>     207
+
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>     183
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>     227
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>     441
+
 
 CONFIG: input = 128 x 32 x 32 * ker = 128 x 128 x 9 x 9 ( bs = 128 , stride = 1 )
-theano.tensor.nnet.conv.conv2d fprop: 244.389723251 GFLOP/s ( tm = 0.800726989746 )
-theano.tensor.nnet.conv.conv2d bprop weights: 0.0 GFLOP/s ( tm = 1.04788916016 )
-theano.tensor.nnet.conv.conv2d bprop inputs: 0.0 GFLOP/s ( tm = 1.0632545166 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft fprop: 6435.84183139 GFLOP/s ( tm = 0.0304061927795 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: 0.0 GFLOP/s ( tm = 0.0359888153076 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: 0.0 GFLOP/s ( tm = 0.100021728516 )
-(experimental) theano.sandbox.cuda.blas.CorrMM fprop: 238.566807549 GFLOP/s ( tm = 0.820271057129 )
-(experimental) theano.sandbox.cuda.blas.CorrMM bprop weights: 0.0 GFLOP/s ( tm = 1.25979650879 )
-(experimental) theano.sandbox.cuda.blas.CorrMM bprop inputs: 0.0 GFLOP/s ( tm = 1.06133093262 )
-pylearn2.sandbox.cuda_convnet fprop: 1131.32310668 GFLOP/s ( tm = 0.172973968506 )
-pylearn2.sandbox.cuda_convnet bprop weights: 0.0 GFLOP/s ( tm = 0.269604614258 )
-pylearn2.sandbox.cuda_convnet bprop inputs: 0.0 GFLOP/s ( tm = 0.249676483154 )
+(experimental) meta-optimizer                      ==> fprop         ==>     123
+(experimental) meta-optimizer                      ==> bprop inputs  ==>      91
+(experimental) meta-optimizer                      ==> bprop weights ==>      86
+
+theano.sandbox.cuda.fftconv.conv2d_fft fprop: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>     123
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      90
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>      86
+
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>     121
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      88
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>      86
+
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>      68
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>      77
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>      70
+
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>      67
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>      78
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>      95
+
 
 CONFIG: input = 128 x 16 x 16 * ker = 128 x 128 x 7 x 7 ( bs = 128 , stride = 1 )
-theano.tensor.nnet.conv.conv2d fprop: 236.590304786 GFLOP/s ( tm = 0.0868678436279 )
-theano.tensor.nnet.conv.conv2d bprop weights: 0.0 GFLOP/s ( tm = 0.112235298157 )
-theano.tensor.nnet.conv.conv2d bprop inputs: 0.0 GFLOP/s ( tm = 0.149312347412 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft fprop: 2447.35318664 GFLOP/s ( tm = 0.00839768028259 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: 0.0 GFLOP/s ( tm = 0.00884262371063 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: 0.0 GFLOP/s ( tm = 0.0288326396942 )
-(experimental) theano.sandbox.cuda.blas.CorrMM fprop: 221.39639882 GFLOP/s ( tm = 0.0928293762207 )
-(experimental) theano.sandbox.cuda.blas.CorrMM bprop weights: 0.0 GFLOP/s ( tm = 0.121334739685 )
-(experimental) theano.sandbox.cuda.blas.CorrMM bprop inputs: 0.0 GFLOP/s ( tm = 0.149571136475 )
-pylearn2.sandbox.cuda_convnet fprop: 1228.53836848 GFLOP/s ( tm = 0.0167288951874 )
-pylearn2.sandbox.cuda_convnet bprop weights: 0.0 GFLOP/s ( tm = 0.0249774723053 )
-pylearn2.sandbox.cuda_convnet bprop inputs: 0.0 GFLOP/s ( tm = 0.0217285118103 )
+(experimental) meta-optimizer                      ==> fprop         ==>      25
+(experimental) meta-optimizer                      ==> bprop inputs  ==>      18
+(experimental) meta-optimizer                      ==> bprop weights ==>      11
+
+theano.sandbox.cuda.fftconv.conv2d_fft fprop: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>      24
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      18
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>      11
+
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>      24
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      18
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>      11
+
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>       7
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>       7
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>       8
+
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>       7
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>       7
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>       9
+
 
 CONFIG: input = 384 x 13 x 13 * ker = 384 x 384 x 3 x 3 ( bs = 128 , stride = 1 )
-theano.tensor.nnet.conv.conv2d fprop: 151.417945998 GFLOP/s ( tm = 0.271489440918 )
-theano.tensor.nnet.conv.conv2d bprop weights: 0.0 GFLOP/s ( tm = 0.270110229492 )
-theano.tensor.nnet.conv.conv2d bprop inputs: 0.0 GFLOP/s ( tm = 0.365226867676 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft fprop: 822.889519974 GFLOP/s ( tm = 0.0499561271667 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: 0.0 GFLOP/s ( tm = 0.0532580947876 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: 0.0 GFLOP/s ( tm = 0.0631114234924 )
-(experimental) theano.sandbox.cuda.blas.CorrMM fprop: 133.682861966 GFLOP/s ( tm = 0.30750668335 )
-(experimental) theano.sandbox.cuda.blas.CorrMM bprop weights: 0.0 GFLOP/s ( tm = 0.359926025391 )
-(experimental) theano.sandbox.cuda.blas.CorrMM bprop inputs: 0.0 GFLOP/s ( tm = 0.416672332764 )
-pylearn2.sandbox.cuda_convnet fprop: 904.08128171 GFLOP/s ( tm = 0.0454697761536 )
-pylearn2.sandbox.cuda_convnet bprop weights: 0.0 GFLOP/s ( tm = 0.0718969726563 )
-pylearn2.sandbox.cuda_convnet bprop inputs: 0.0 GFLOP/s ( tm = 0.0517140808105 )
+(experimental) meta-optimizer                      ==> fprop         ==>      28
+(experimental) meta-optimizer                      ==> bprop inputs  ==>      18
+(experimental) meta-optimizer                      ==> bprop weights ==>      14
+
+theano.sandbox.cuda.fftconv.conv2d_fft fprop: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>      28
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      17
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>      14
+
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>      28
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      17
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>      14
+
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>      16
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>      15
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>      19
+
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>      17
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>      15
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>      23
+

@@ -1,14 +1,15 @@
-name: "ConvLayer_128x128x9x9"
+name: "ConvLayer_64x128x9x9"
 input: "data"
 input_dim: 128
-input_dim: 128
-input_dim: 32
-input_dim: 32
+input_dim: 64
+input_dim: 64
+input_dim: 64
+force_backward: true
 layers {
-  name: "conv1"
+  name: "conv2"
   type: CONVOLUTION
   bottom: "data"
-  top: "conv1"
+  top: "conv2"
   blobs_lr: 1
   blobs_lr: 2
   convolution_param {
